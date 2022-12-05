@@ -1,0 +1,8 @@
+{
+  "store": "Store",
+  "favorite": "favorite",
+
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  }
+}
