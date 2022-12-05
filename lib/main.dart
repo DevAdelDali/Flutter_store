@@ -10,6 +10,7 @@ void main() {
   runApp(const MyApp());
 }
 //****************************************************************************
+//khalid
 Locale? locale;
 final MyController mycontroler = Get.find();
 
