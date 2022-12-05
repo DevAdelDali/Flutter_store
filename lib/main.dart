@@ -5,11 +5,16 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:store/controller/controller.dart';
 import 'package:store/theme.dart';
+import 'package:store/view/Screen/Start/choose_entry_screen.dart';
+import 'package:store/view/Screen/Start/luncher_app.dart';
+import 'package:store/view/Screen/Start/out_bording_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
 //****************************************************************************
+
+//Adel
 //khalidf
 //Adel
 Locale? locale;
@@ -22,6 +27,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      routes: {
+        "/luncher_app": (context) => const Luncher_APP(),
+        "/out_bording_screen": (context) => const Out_Bording(),
+        "/choose_entry_screen": (context) => const ChooseEnteyScreen(),
+      },
       supportedLocales: const [
         Locale('ar', ''),
         Locale('en', ''),
@@ -36,31 +46,8 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       theme: AppTheme.lightTheme,
-      home: const MyHomePage(),
+      initialRoute: "/luncher_app",
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.store),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[],
-        ),
-      ),
-    );
-  }
-}
