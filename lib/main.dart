@@ -11,6 +11,7 @@ void main() {
 }
 //****************************************************************************
 //khalidf
+//Adel
 Locale? locale;
 final MyController mycontroler = Get.find();
 
