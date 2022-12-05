@@ -9,7 +9,7 @@ import 'package:store/theme.dart';
 void main() {
   runApp(const MyApp());
 }
-
+//****************************************************************************
 Locale? locale;
 final MyController mycontroler = Get.find();
 
