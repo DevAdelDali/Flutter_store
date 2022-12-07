@@ -9,9 +9,6 @@ class ChooseEnteyScreen extends StatefulWidget {
   State<ChooseEnteyScreen> createState() => _ChooseEnteyScreenState();
 }
 
-
-
-
 class _ChooseEnteyScreenState extends State<ChooseEnteyScreen> {
   @override
   Widget build(BuildContext context) {
@@ -44,13 +41,23 @@ class _ChooseEnteyScreenState extends State<ChooseEnteyScreen> {
               height: 98,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,//Added by khalid
               children: [
-
-BottonCustom(fontSize: 14,titel: "Sign in", colorBotton: Color(0xff586BCA) , textColorBotton: Colors.white, height: 60, width: 170),
-
+                BottonCustom(
+                    fontSize: 14,
+                    titel: "Sign in",
+                    colorBotton: Color(0xff586BCA),
+                    textColorBotton: Colors.white,
+                    height: 60,
+                    width: 170),
                 SizedBox(width: 60),
-                BottonCustom(fontSize: 14,titel: "Sign in", colorBotton: Color(0xff586BCA) , textColorBotton: Colors.white, height: 60, width: 170)
-
+                BottonCustom(
+                    fontSize: 14,
+                    titel: "Sign in",
+                    colorBotton: Color(0xff586BCA),
+                    textColorBotton: Colors.white,
+                    height: 60,
+                    width: 170)
               ],
             )
           ],
