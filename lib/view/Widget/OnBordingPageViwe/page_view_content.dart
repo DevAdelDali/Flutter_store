@@ -2,22 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PageView_Content extends StatelessWidget {
-  const PageView_Content({
-    required this.img,required this.titel,  this.subTitel =""
+  const PageView_Content(
+      {required this.img, required this.titel, this.subTitel = ""});
 
-  }) ;
   final String img;
   final String titel;
   final String subTitel;
-
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.max,
       children: [
-          Image(
-          image: AssetImage("images/$img.png"),height: 300,width: 400,
+        Image(
+          image: AssetImage("images/$img.png"),
+          height: 300,
+          width: 400,
         ),
         const SizedBox(
           height: 36,

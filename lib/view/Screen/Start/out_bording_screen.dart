@@ -35,6 +35,7 @@ class _Out_BordingState extends State<Out_Bording> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsetsDirectional.only(end: 8, top: 10),
