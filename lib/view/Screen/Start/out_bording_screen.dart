@@ -120,7 +120,9 @@ class _Out_BordingState extends State<Out_Bording> {
                   ),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor:_courantIndexTabPageviwe != 2 ? Color(0xffAEB9F0):  Color(0xff586BCA)  ,
+                        backgroundColor:_courantIndexTabPageviwe != 2
+                            ? Color(0xffAEB9F0):
+                            Color(0xff586BCA)  ,
                         minimumSize: const Size(44, 50),
                         elevation: 8,
                         shape: RoundedRectangleBorder(

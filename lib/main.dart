@@ -5,6 +5,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:store/controller/controller.dart';
 import 'package:store/theme.dart';
+import 'package:store/view/Screen/Entry/login.dart';
+import 'package:store/view/Screen/Entry/register.dart';
 import 'package:store/view/Screen/Start/choose_entry_screen.dart';
 import 'package:store/view/Screen/Start/luncher_app.dart';
 import 'package:store/view/Screen/Start/out_bording_screen.dart';
@@ -12,11 +14,8 @@ import 'package:store/view/Screen/Start/out_bording_screen.dart';
 void main() {
   runApp(const MyApp());
 }
-//****************************************************************************
 
-//Adel
-//khalidf
-//Adel
+
 Locale? locale;
 final MyController mycontroler = Get.find();
 
@@ -31,6 +30,8 @@ class MyApp extends StatelessWidget {
         "/luncher_app": (context) => const Luncher_APP(),
         "/out_bording_screen": (context) => const Out_Bording(),
         "/choose_entry_screen": (context) => const ChooseEnteyScreen(),
+        "/login": (context) => const LoginScreen(),
+        "/register": (context) => const RegisterScreen(),
       },
       supportedLocales: const [
         Locale('ar', ''),

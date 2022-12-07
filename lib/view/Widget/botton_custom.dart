@@ -9,21 +9,34 @@ class BottonCustom extends StatelessWidget {
   final double fontSize;
   final double height;
   final double width;
-
-  BottonCustom(
+  final bool existBorder;
+  final Function () onTap;
+  const BottonCustom(
       {required this.titel,
       required this.colorBotton,
       required this.textColorBotton,
       required this.fontSize,
       required this.height,
-      required this.width});
+      required this.width,
+      required this.onTap,
+      this.existBorder = false});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: () {},
+        onPressed: onTap,
         style: ElevatedButton.styleFrom(
-            backgroundColor: colorBotton!, maximumSize: Size(width!, height!)),
+            elevation: 5,
+            shape: RoundedRectangleBorder(
+               borderRadius: BorderRadius.circular(15),
+                side: BorderSide(
+                    width: 1,
+                    color: existBorder == true
+                        ? const Color(0xff586BCA)
+                        : Colors.transparent))
+            ,
+            backgroundColor: colorBotton!,
+            minimumSize: Size(width!, height!)),
         child: Text(
           titel!,
           style:

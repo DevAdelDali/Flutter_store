@@ -9,9 +9,6 @@ class ChooseEnteyScreen extends StatefulWidget {
   State<ChooseEnteyScreen> createState() => _ChooseEnteyScreenState();
 }
 
-
-
-
 class _ChooseEnteyScreenState extends State<ChooseEnteyScreen> {
   @override
   Widget build(BuildContext context) {
@@ -44,13 +41,28 @@ class _ChooseEnteyScreenState extends State<ChooseEnteyScreen> {
               height: 98,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-
-BottonCustom(fontSize: 14,titel: "Sign in", colorBotton: Color(0xff586BCA) , textColorBotton: Colors.white, height: 60, width: 170),
-
-                SizedBox(width: 60),
-                BottonCustom(fontSize: 14,titel: "Sign in", colorBotton: Color(0xff586BCA) , textColorBotton: Colors.white, height: 60, width: 170)
-
+                SizedBox(width: 45),
+                BottonCustom(
+                  onTap:  ()  => Navigator.pushReplacementNamed(context, "/login"),
+                    fontSize: 14,
+                    titel: "Sign in",
+                    colorBotton: Color(0xff586BCA),
+                    textColorBotton: Colors.white,
+                    height: 60,
+                    width: 135),
+                // SizedBox(width: 20),
+                 BottonCustom(
+                   onTap: () => Navigator.pushReplacementNamed(context, "/register") ,
+                    fontSize: 14,
+                    titel: "Sign up",
+                    colorBotton: Colors.white,
+                    textColorBotton: Color(0xff586BCA),
+                    height: 60,
+                    width: 135,existBorder: true,
+                 ),
+                SizedBox(width: 45),
               ],
             )
           ],
@@ -58,4 +70,6 @@ BottonCustom(fontSize: 14,titel: "Sign in", colorBotton: Color(0xff586BCA) , tex
       ),
     );
   }
+
+
 }
