@@ -1,5 +1,7 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -8,13 +10,19 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+final List<String> images = [
+  'images/black_friday.jpg',
+  'images/offers.jpg',
+  'images/offers3.jpg',
+];
+
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(top: 40),
-        margin: EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.only(top: 40),
+        margin: const EdgeInsets.symmetric(horizontal: 30),
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -32,74 +40,154 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 37,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                OutlinedButton(
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  CustomCheckBoxGroup(
 
-                  onPressed: () {},
-                  child: Text('data',style: TextStyle(color: Color(0xff586BCA)),),
-                  style: ButtonStyle(
-                    side: MaterialStateProperty.all(
-                      BorderSide(
-                        color: Color(0x8f586BCA),
-                      ),
-                    ),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                    ),
-                  ),
+                      // horizontal: true,
+                      horizontal: false,
+                      enableButtonWrap: false,
+                      autoWidth: true,
+                      buttonValuesList: const [
+                        //بيانات افتراضية
+                        'khalid',
+                        'adel',
+                        'mohammed',
+                        'alid',
+                        'said'
+                      ],
+                      buttonLables: const [
+                        //بيانات افتراضية
+                        'khalid',
+                        'adel',
+                        'mohammed',
+                        'alid',
+                        'said'
+                      ],
+                      checkBoxButtonValues: (value) {},
+                      selectedColor: const Color(0xff586BCA),
+                      unSelectedColor: Colors.white),
+                ],
+              ),
+            ),
+            CarouselSlider(
+              options: CarouselOptions(
+                autoPlay: true,
+              ),
+              items: images
+                  .map((item) => Container(
+                      margin: const EdgeInsets.all(10),
+                      child: Image.asset(item, fit: BoxFit.cover, width: 1000)))
+                  .toList(),
+            ),
+            const SizedBox(
+              height: 24,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text(
+                  'Recent Added',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18),
                 ),
-                OutlinedButton(
-                  onPressed: () {},
-                  child: Text('data'),
-                  style: ButtonStyle(
-                    side: MaterialStateProperty.all(
-                      BorderSide(
-                        color: Color(0x8f586BCA),
-                      ),
-                    ),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                    ),
-                  ),
-                ),
-                OutlinedButton(
-                  onPressed: () {},
-                  child: Text('data'),
-                  style: ButtonStyle(
-                    side: MaterialStateProperty.all(
-                      BorderSide(
-                        color: Color(0x8f586BCA),
-                      ),
-                    ),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                    ),
-                  ),
-                ),
-                OutlinedButton(
-                  onPressed: () {},
-                  child: Text('data'),
-                  style: ButtonStyle(
-                    side: MaterialStateProperty.all(
-                      BorderSide(
-                        color: Color(0x8f586BCA),
-                      ),
-                    ),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                    ),
-                  ),
+                Text(
+                  'View All',
+                  style: TextStyle(color: Color(0xff586BCA)),
                 ),
               ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Expanded(
+              child: ListView.separated(
+                separatorBuilder: (BuildContext context, int index) =>
+                    const SizedBox(
+                  height: 13,
+                ),
+                // shrinkWrap: true,
+                itemCount: 6,
+                itemBuilder: (BuildContext context, int index) {
+                  return InkWell(
+                    onTap: () {},
+                    child: Row(
+                      children: [
+                        const SizedBox(
+                          height: 120,
+                          width: 120,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            child: Image(
+                              image: AssetImage('images/offers3.jpg'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Flexible(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Text(
+                                    'Bracelets',
+                                    style: TextStyle(
+                                        color: Color(0xff586BCA),
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: const Icon(Icons.favorite),
+                                    color: const Color(0xff586BCA),
+                                  )
+                                ],
+                              ),
+                              const Text('Blue Steel Watch'),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Row(
+                                children: const [
+                                  Text(
+                                    'USD240',
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                  SizedBox(
+                                    width: 13,
+                                  ),
+                                  Text(
+                                    'USD365',
+                                    style: TextStyle(
+                                        color: Colors.red,
+                                        decoration: TextDecoration.lineThrough),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  );
+                },
+              ),
             )
           ],
         ),

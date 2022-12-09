@@ -12,15 +12,16 @@ class AppTheme {
 
       ),
     ),*/
-    buttonTheme: ButtonThemeData(
-      buttonColor: Colors.red
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        selectedItemColor: Color(0xff586BCA), unselectedItemColor: Colors.grey),
+    buttonTheme: const ButtonThemeData(
+      buttonColor: Colors.red,
     ),
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
-        overlayColor: MaterialStateProperty.all(Colors.red),
-        backgroundColor: MaterialStateProperty.all(Colors.red) ,
-        foregroundColor: MaterialStateProperty.all(Colors.red)
-      ),
+          overlayColor: MaterialStateProperty.all(Colors.red),
+          backgroundColor: MaterialStateProperty.all(Colors.red),
+          foregroundColor: MaterialStateProperty.all(Colors.red)),
     ),
     bannerTheme: MaterialBannerThemeData(backgroundColor: Colors.red),
     colorScheme: const ColorScheme.light(

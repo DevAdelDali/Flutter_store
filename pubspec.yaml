@@ -41,6 +41,8 @@ dependencies:
   flutter_localizations: #for multi language
     sdk: flutter
   intl: ^0.17.0
+  carousel_slider: ^4.1.1
+  custom_radio_grouped_button: ^2.1.2+2
 
 dev_dependencies:
   flutter_test:

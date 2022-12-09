@@ -45,7 +45,8 @@ class _Out_BordingState extends State<Out_Bording> {
                   visible: _courantIndexTabPageviwe != 2,
                   replacement: TextButton(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, "/choose_entry_screen");
+                      Navigator.pushReplacementNamed(
+                          context, "/choose_entry_screen");
                     },
                     child: Text("START",
                         style: GoogleFonts.poppins(
@@ -99,7 +100,7 @@ class _Out_BordingState extends State<Out_Bording> {
               height: 120.2,
             ),
             Container(
-              padding: EdgeInsetsDirectional.only( start: 29,end: 23.5),
+              padding: EdgeInsetsDirectional.only(start: 29, end: 23.5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -121,9 +122,9 @@ class _Out_BordingState extends State<Out_Bording> {
                   ),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor:_courantIndexTabPageviwe != 2
-                            ? Color(0xffAEB9F0):
-                            Color(0xff586BCA)  ,
+                        backgroundColor: _courantIndexTabPageviwe != 2
+                            ? Color(0xffAEB9F0)
+                            : Color(0xff586BCA),
                         minimumSize: const Size(44, 50),
                         elevation: 8,
                         shape: RoundedRectangleBorder(
@@ -134,12 +135,10 @@ class _Out_BordingState extends State<Out_Bording> {
                           _counrolerPageView.nextPage(
                               duration: const Duration(seconds: 1),
                               curve: Curves.easeOutBack);
-                        }else{
-
-                          Navigator.pushReplacementNamed(context, "/choose_entry_screen");
+                        } else {
+                          Navigator.pushReplacementNamed(
+                              context, "/choose_entry_screen");
                         }
-
-
                       },
                       child: const Icon(
                         Icons.arrow_forward,
@@ -151,7 +150,6 @@ class _Out_BordingState extends State<Out_Bording> {
             ),
 //*********************************************************************
 
-
             const SizedBox(
               height: 111.4,
             ),
@@ -161,4 +159,3 @@ class _Out_BordingState extends State<Out_Bording> {
     );
   }
 }
-
