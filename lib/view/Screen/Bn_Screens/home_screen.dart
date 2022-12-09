@@ -49,8 +49,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   CustomCheckBoxGroup(
-
-                      // horizontal: true,
+                      height: 46,
+                      enableShape: true,
+                      customShape: RoundedRectangleBorder(
+                          side: const BorderSide(
+                              color: Color(0x5f586BCA), width: 1),
+                          borderRadius: BorderRadius.circular(8)),
                       horizontal: false,
                       enableButtonWrap: false,
                       autoWidth: true,
@@ -121,15 +125,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () {},
                     child: Row(
                       children: [
-                        const SizedBox(
-                          height: 120,
-                          width: 120,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            child: Image(
-                              image: AssetImage('images/offers3.jpg'),
-                              fit: BoxFit.cover,
-                            ),
+                       const  ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          child: Image(
+                            image: AssetImage('images/offers3.jpg'),
+                            height: 119,
+                            width: 119,
+                            fit: BoxFit.cover,
                           ),
                         ),
                         const SizedBox(
@@ -145,36 +147,39 @@ class _HomeScreenState extends State<HomeScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  const Text(
-                                    'Bracelets',
-                                    style: TextStyle(
-                                        color: Color(0xff586BCA),
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold),
-                                  ),
+                                  Text('Bracelets',
+                                      style: GoogleFonts.poppins(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                          color: const Color(0xff586BCA))),
                                   IconButton(
                                     onPressed: () {},
-                                    icon: const Icon(Icons.favorite),
-                                    color: const Color(0xff586BCA),
+                                    icon: Icon(
+                                      Icons.favorite,
+                                    ),
                                   )
                                 ],
                               ),
-                              const Text('Blue Steel Watch'),
+                              Text('Blue Steel Watch',
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold)),
                               const SizedBox(
                                 height: 5,
                               ),
                               Row(
-                                children: const [
+                                children: [
                                   Text(
                                     'USD240',
-                                    style: TextStyle(color: Colors.grey),
+                                    style: GoogleFonts.poppins(
+                                        color: Color(0xff8FA1B4)),
                                   ),
                                   SizedBox(
                                     width: 13,
                                   ),
                                   Text(
                                     'USD365',
-                                    style: TextStyle(
+                                    style: GoogleFonts.poppins(
                                         color: Colors.red,
                                         decoration: TextDecoration.lineThrough),
                                   ),

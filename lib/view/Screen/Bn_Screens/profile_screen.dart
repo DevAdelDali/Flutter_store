@@ -13,6 +13,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
           leadingWidth: double.minPositive,
           automaticallyImplyLeading: false,
           title: Row(
@@ -21,13 +22,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Row(
                 children: [
                   IconButton(
-                    onPressed: () =>
-                        Navigator.pushReplacementNamed(context, "/bottom_screen"),
+                    onPressed: () => Navigator.pushReplacementNamed(
+                        context, "/bottom_screen"),
                     icon: Icon(Icons.arrow_back_ios, color: Color(0xff586BCA)),
                   ),
                   GestureDetector(
-                    onTap: () =>
-                        Navigator.pushReplacementNamed(context, "/bottom_screen"),
+                    onTap: () => Navigator.pushReplacementNamed(
+                        context, "/bottom_screen"),
                     child: Container(
                         height: 20,
                         width: 100,
@@ -70,70 +71,119 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   fontWeight: FontWeight.bold,
                   color: Color(0xff1B2A3B))),
 
-
-          ListTile(
-            onTap: () {
-
-            },
-            trailing:const Icon(Icons.arrow_forward_ios,color: Color(0xff586BCA),),
-            leading: const  Icon(Icons.notifications_active,color: Color(0xff586BCA),),
-            title:Text("Notifications",style: GoogleFonts.poppins( fontSize: 16,
-              fontWeight: FontWeight.bold,),) ,
-
+          SizedBox(
+            height: 79,
           ),
-
-
           ListTile(
-            onTap: () {
-
-            },
-            trailing: Icon(Icons.arrow_forward_ios,color: Color(0xff586BCA),),
-            leading:Container(height: 18,width: 18,child: Image.asset("images/IconsApp/order.png")),
-            title:Text("My Order",style: GoogleFonts.poppins( fontSize: 16,
-              fontWeight: FontWeight.bold,),) ,
-
-          ),   ListTile(
-            onTap: () {
-
-            },
-            trailing: Icon(Icons.arrow_forward_ios,color: Color(0xff586BCA),),
-            leading:Container(
-              height: 20,width: 20,
-                child: Image.asset("images/IconsApp/address.png",)),
-            title:Text("Address",style: GoogleFonts.poppins( fontSize: 16,
-              fontWeight: FontWeight.bold,),) ,
-
+            onTap: () {},
+            trailing: const Icon(
+              Icons.arrow_forward_ios,
+              color: Color(0xff586BCA),
+            ),
+            leading: const Icon(
+              Icons.notifications_active,
+              color: Color(0xff586BCA),
+            ),
+            title: Text(
+              "Notifications",
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
-
           ListTile(
-            onTap: () {
-
-            },
-            trailing:const Icon(Icons.arrow_forward_ios,color: Color(0xff586BCA),),
-            leading: const  Icon(Icons.payment,color: Color(0xff586BCA),),
-            title:Text("Payment",style: GoogleFonts.poppins( fontSize: 16,
-              fontWeight: FontWeight.bold,),) ,
-
-          ),   ListTile(
-            onTap: () {
-
-            },
-            trailing: Icon(Icons.arrow_forward_ios,color: Color(0xff586BCA),),
-            leading: Icon(Icons.favorite,color: Color(0xff586BCA),),
-            title:Text("Favorite",style: GoogleFonts.poppins( fontSize: 16,
-              fontWeight: FontWeight.bold,),) ,
-
-          ),   ListTile(
-            onTap: () {
-
-            },
-            trailing: Icon(Icons.arrow_forward_ios,color: Color(0xff586BCA),),
-            leading: Icon(Icons.settings,color: Color(0xff586BCA),),
-            title:Text("Settings",style: GoogleFonts.poppins( fontSize: 16,
-              fontWeight: FontWeight.bold,),) ,
-
+            onTap: () {},
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Color(0xff586BCA),
+            ),
+            leading: Container(
+                height: 18,
+                width: 18,
+                child: Image.asset("images/IconsApp/order.png")),
+            title: Text(
+              "My Order",
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
-
+          ListTile(
+            onTap: () {},
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Color(0xff586BCA),
+            ),
+            leading: Container(
+                height: 20,
+                width: 20,
+                child: Image.asset(
+                  "images/IconsApp/address.png",
+                )),
+            title: Text(
+              "Address",
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          ListTile(
+            onTap: () {},
+            trailing: const Icon(
+              Icons.arrow_forward_ios,
+              color: Color(0xff586BCA),
+            ),
+            leading: const Icon(
+              Icons.payment,
+              color: Color(0xff586BCA),
+            ),
+            title: Text(
+              "Payment",
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          ListTile(
+            onTap: () {},
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Color(0xff586BCA),
+            ),
+            leading: Icon(
+              Icons.favorite,
+              color: Color(0xff586BCA),
+            ),
+            title: Text(
+              "Favorite",
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          ListTile(
+            onTap: () {},
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Color(0xff586BCA),
+            ),
+            leading: Icon(
+              Icons.settings,
+              color: Color(0xff586BCA),
+            ),
+            title: Text(
+              "Settings",
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ],
       ),
     );
