@@ -16,7 +16,7 @@ class PageView_Content extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       children: [
         Image(
-          image: AssetImage("images/$img.png"),
+          image: AssetImage("images/Onbording/$img.png"),
           height: 300,
           width: 400,
         ),

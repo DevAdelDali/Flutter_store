@@ -7,6 +7,7 @@ import 'package:store/controller/controller.dart';
 import 'package:store/theme.dart';
 import 'package:store/view/Screen/Bn_Screens/bottom_navigation_bar.dart';
 import 'package:store/view/Screen/Bn_Screens/home_screen.dart';
+import 'package:store/view/Screen/Bn_Screens/profile_screen.dart';
 import 'package:store/view/Screen/Entry/forget_pass_screen.dart';
 import 'package:store/view/Screen/Entry/login.dart';
 import 'package:store/view/Screen/Entry/register.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         "/forget_pass_screen": (context) => const ForgetScreen(),
         "/home_screen": (context) => const HomeScreen(),
         "/bottom_screen": (context) => const BottomScreen(),
+        "/profile_screen": (context) => const ProfileScreen(),
       },
       supportedLocales: const [
         Locale('ar', ''),
@@ -60,7 +62,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       theme: AppTheme.lightTheme,
-      initialRoute: "/choose_entry_screen",
+      initialRoute: "/profile_screen",
     );
   }
 }

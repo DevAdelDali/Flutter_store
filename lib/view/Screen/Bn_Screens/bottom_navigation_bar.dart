@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store/view/Screen/Bn_Screens/home_screen.dart';
+import 'package:store/view/Screen/Bn_Screens/profile_screen.dart';
 
 class BottomScreen extends StatefulWidget {
   const BottomScreen({Key? key}) : super(key: key);
@@ -10,11 +11,11 @@ class BottomScreen extends StatefulWidget {
 
 class _BottomScreenState extends State<BottomScreen> {
   int currentPage = 0;
-  static List<Widget> pages = [
+  static List<Widget> pages = const [
     HomeScreen(),
     HomeScreen(),
     HomeScreen(),
-    HomeScreen(),
+    ProfileScreen(),
   ];
 
   @override
@@ -43,6 +44,7 @@ class _BottomScreenState extends State<BottomScreen> {
               ),
               BottomNavigationBarItem(
                 label: 'Profile',
+
                 icon: Icon(Icons.person),
               ),
             ]),
