@@ -10,7 +10,8 @@ class BottonCustom extends StatelessWidget {
   final double height;
   final double width;
   final bool existBorder;
-  final Function () onTap;
+  final Function() onTap;
+
   const BottonCustom(
       {required this.titel,
       required this.colorBotton,
@@ -28,19 +29,18 @@ class BottonCustom extends StatelessWidget {
         style: ElevatedButton.styleFrom(
             elevation: 5,
             shape: RoundedRectangleBorder(
-               borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(15),
                 side: BorderSide(
                     width: 1,
                     color: existBorder == true
                         ? const Color(0xff586BCA)
-                        : Colors.transparent))
-            ,
+                        : Colors.transparent)),
             backgroundColor: colorBotton!,
             minimumSize: Size(width!, height!)),
         child: Text(
           titel!,
           style:
-              GoogleFonts.poppins(fontSize: fontSize!, color: textColorBotton!),
+              GoogleFonts.poppins(fontSize: fontSize!, color: textColorBotton!,fontWeight: FontWeight.bold),
         ));
   }
 }

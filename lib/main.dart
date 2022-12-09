@@ -5,8 +5,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:store/controller/controller.dart';
 import 'package:store/theme.dart';
-import 'package:store/view/Screen/Bn_Screens/bottomNavigationBar.dart';
+import 'package:store/view/Screen/Bn_Screens/bottom_navigation_bar.dart';
 import 'package:store/view/Screen/Bn_Screens/home_screen.dart';
+import 'package:store/view/Screen/Entry/forget_pass_screen.dart';
+import 'package:store/view/Screen/Entry/login.dart';
+import 'package:store/view/Screen/Entry/register.dart';
 import 'package:store/view/Screen/Start/choose_entry_screen.dart';
 import 'package:store/view/Screen/Start/luncher_app.dart';
 import 'package:store/view/Screen/Start/out_bording_screen.dart';
@@ -37,6 +40,9 @@ class MyApp extends StatelessWidget {
         "/luncher_app": (context) => const Luncher_APP(),
         "/out_bording_screen": (context) => const Out_Bording(),
         "/choose_entry_screen": (context) => const ChooseEnteyScreen(),
+        "/login": (context) => const LoginScreen(),
+        "/register": (context) => const RegisterScreen(),
+        "/forget_pass_screen": (context) => const ForgetScreen(),
         "/home_screen": (context) => const HomeScreen(),
         "/bottom_screen": (context) => const BottomScreen(),
       },
@@ -54,7 +60,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       theme: AppTheme.lightTheme,
-      initialRoute: "/bottom_screen",
+      initialRoute: "/choose_entry_screen",
     );
   }
 }
