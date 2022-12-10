@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:store/view/Widget/botton_custom.dart';
 import 'package:store/view/Widget/text_field.dart';
 
+import '../../../generated/l10n.dart';
+
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
 
@@ -59,8 +61,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: Column(
                 children: [
                   TextFieldCustom(
-                      hintTitel: "Email",
-                      errorText: "Enter your Email",
+                      hintTitel:  S.of(context).email,
+                      errorText:  S.of(context).enter_your_email,
                       isHide: true,
                       prefixIcon: const Icon(Icons.email, color: Colors.grey),
                       textInputType: TextInputType.emailAddress,
@@ -73,8 +75,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     height: 20,
                   ),
                   TextFieldCustom(
-                      hintTitel: "Mobile",
-                      errorText: "Enter your Mobile",
+                      hintTitel:  S.of(context).mobile,
+                      errorText:  S.of(context).enter_your_mobile,
                       isHide: true,
                       prefixIcon: const Icon(Icons.phone, color: Colors.grey),
                       textInputType: TextInputType.emailAddress,
@@ -87,8 +89,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     height: 20,
                   ),
                   TextFieldCustom(
-                      hintTitel: "Password",
-                      errorText: "Enter your Password",
+                      hintTitel:  S.of(context).password,
+                      errorText: S.of(context).enter_your_password,
                       isHide: _showPass,
                       prefixIcon: Icon(Icons.lock, color: Colors.grey),
                       textInputType: TextInputType.visiblePassword,
@@ -113,7 +115,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               height: 40,
             ),
             BottonCustom(
-                titel: "Sign Up",
+                titel:  S.of(context).sign_up,
                 colorBotton: const Color(0xff586BCA),
                 textColorBotton: Colors.white,
                 fontSize: 14,
@@ -134,7 +136,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   foregroundColor: MaterialStateProperty.all(Colors.white),
                 ),
                 child: Text(
-                  "Already have account?",
+                  S.of(context).already_have_account,
                   style: GoogleFonts.poppins(
                       fontSize: 15,
                       backgroundColor: Colors.transparent,

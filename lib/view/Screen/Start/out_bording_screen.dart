@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:store/view/Widget/OnBordingPageViwe/page_indecator.dart';
 import 'package:store/view/Widget/OnBordingPageViwe/page_view_content.dart';
 
+import '../../../generated/l10n.dart';
+
 class Out_Bording extends StatefulWidget {
   const Out_Bording({Key? key}) : super(key: key);
 
@@ -48,7 +50,7 @@ class _Out_BordingState extends State<Out_Bording> {
                       Navigator.pushReplacementNamed(
                           context, "/choose_entry_screen");
                     },
-                    child: Text("START",
+                    child: Text( S.of(context).start,
                         style: GoogleFonts.poppins(
                           color: Colors.black,
                           fontSize: 20,
@@ -60,7 +62,7 @@ class _Out_BordingState extends State<Out_Bording> {
                           duration: const Duration(seconds: 1),
                           curve: Curves.easeOutExpo);
                     },
-                    child: Text("SKIP",
+                    child: Text( S.of(context).skip,
                         style: GoogleFonts.poppins(
                           color: Colors.black,
                           fontSize: 20,
@@ -78,20 +80,20 @@ class _Out_BordingState extends State<Out_Bording> {
                     _courantIndexTabPageviwe = courantindexTabPageviwe;
                   });
                 },
-                children: const [
+                children: [
                   PageView_Content(
                     img: "Black Friday-pana (1)",
-                    titel: "The Best way to explore \n an off-beat location",
+                    titel: "${ S.of(context).the_best_way} \n ${ S.of(context).an_off_beat_location}",
                   ),
                   PageView_Content(
                     img: "Closed sign-bro (1)",
-                    titel: "Realtime Tracking",
-                    subTitel: "Track your delivery in realtime.",
+                    titel:  S.of(context).realtime_tracking,
+                    subTitel: S.of(context).track_your,
                   ),
                   PageView_Content(
                     img: "Discount-rafiki",
-                    titel: "Pickup Delivery",
-                    subTitel: "Receive doorstep delivery and best discounts",
+                    titel:  S.of(context).pickup_delivery,
+                    subTitel:  S.of(context).Receive_doorstep,
                   ),
                 ],
               ),

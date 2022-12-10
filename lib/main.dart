@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:store/controller/controller.dart';
 import 'package:store/theme.dart';
 import 'package:store/view/Screen/Bn_Screens/bottom_navigation_bar.dart';
@@ -15,9 +15,17 @@ import 'package:store/view/Screen/Product/product_detiles.dart';
 import 'package:store/view/Screen/Start/choose_entry_screen.dart';
 import 'package:store/view/Screen/Start/luncher_app.dart';
 import 'package:store/view/Screen/Start/out_bording_screen.dart';
+import '../../../provider.dart';
+
+import 'generated/l10n.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(/*const MyApp()*/
+
+      ChangeNotifierProvider(
+    create: (_) => MyProvider(),
+    child: MyApp(),
+  ));
 }
 //****************************************************************************
 
@@ -55,7 +63,7 @@ class MyApp extends StatelessWidget {
         Locale('en', ''),
       ],
       localizationsDelegates: const [
-        AppLocalizations.delegate,
+        S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -64,7 +72,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       theme: AppTheme.lightTheme,
-      initialRoute: "/product_detiles",
+      initialRoute: "/bottom_screen",
     );
   }
 }

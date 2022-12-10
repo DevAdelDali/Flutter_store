@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:store/view/Widget/botton_custom.dart';
 import 'package:store/view/Widget/text_field.dart';
 
+import '../../../generated/l10n.dart';
+
 class ForgetScreen extends StatefulWidget {
   const ForgetScreen({Key? key}) : super(key: key);
 
@@ -72,21 +74,23 @@ class _ForgetScreenState extends State<ForgetScreen> {
             Text(
               "Recover\nyour account",
               style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.bold, color: Colors.black, fontSize: 25),
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontSize: 25),
             ),
             SizedBox(
               height: 189,
             ),
             TextFieldCustom(
-                hintTitel: "Enter email or phone number ",
-                errorText: "Erorr",
+                hintTitel: S.of(context).enter_email,
+                errorText:S.of(context).error,
                 isHide: false,
                 textInputType: TextInputType.text,
                 controller: _recavire_textEditingController),
             SizedBox(
               height: 20,
             ), BottonCustom(
-                titel: "Next",
+                titel: S.of(context).next,
                 colorBotton: const Color(0xff586BCA),
                 textColorBotton: Colors.white,
                 fontSize: 14,

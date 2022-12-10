@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../generated/l10n.dart';
+
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
@@ -14,7 +16,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
           toolbarHeight: 100.0,
-        elevation: 0,
+          elevation: 0,
           leadingWidth: double.minPositive,
           automaticallyImplyLeading: false,
           title: Row(
@@ -25,19 +27,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   IconButton(
                     onPressed: () => Navigator.pushReplacementNamed(
                         context, "/bottom_screen"),
-                    icon: Icon(Icons.arrow_back_ios, color: Color(0xff586BCA)),
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
+                    ),
                   ),
                   GestureDetector(
                     onTap: () => Navigator.pushReplacementNamed(
                         context, "/bottom_screen"),
-                    child: Container(
+                    child: SizedBox(
                         height: 20,
                         width: 100,
                         child: Text(
-                          "Back",
+                          S.of(context).back,
                           style: GoogleFonts.poppins(
                               fontSize: 16,
-                              color: Color(0xff586BCA),
+                              color: Theme.of(context).iconTheme.color,
                               fontWeight: FontWeight.bold),
                         )),
                   )
@@ -47,84 +51,45 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 onPressed: () {
                   // Navigator.pushReplacementNamed(context, "/home_screen");
                 },
-                icon: Icon(Icons.edit, color: Color(0xff586BCA)),
+                icon: const Icon(
+                  Icons.edit,
+                ),
               ),
             ],
           )),
       body: ListView(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 25,
           ),
-          CircleAvatar(
+          const CircleAvatar(
             radius: 50,
             child: Image(
               image: AssetImage("images/Profile Picture.png"),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Text("Tanya Robinson",
+          Text(S.of(context).name,
               textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xff1B2A3B))),
-
-          SizedBox(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              )),
+          const SizedBox(
             height: 79,
           ),
           ListTile(
             onTap: () {},
             trailing: const Icon(
               Icons.arrow_forward_ios,
-              color: Color(0xff586BCA),
             ),
             leading: const Icon(
               Icons.notifications_active,
-              color: Color(0xff586BCA),
             ),
             title: Text(
-              "Notifications",
-              style: GoogleFonts.poppins(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          ListTile(
-            onTap: () {},
-            trailing: Icon(
-              Icons.arrow_forward_ios,
-              color: Color(0xff586BCA),
-            ),
-            leading: Container(
-                height: 18,
-                width: 18,
-                child: Image.asset("images/IconsApp/order.png")),
-            title: Text(
-              "My Order",
-              style: GoogleFonts.poppins(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          ListTile(
-            onTap: () {},
-            trailing: Icon(
-              Icons.arrow_forward_ios,
-              color: Color(0xff586BCA),
-            ),
-            leading: Container(
-                height: 20,
-                width: 20,
-                child: Image.asset(
-                  "images/IconsApp/address.png",
-                )),
-            title: Text(
-              "Address",
+              S.of(context).notifications,
               style: GoogleFonts.poppins(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -135,14 +100,44 @@ class _ProfileScreenState extends State<ProfileScreen> {
             onTap: () {},
             trailing: const Icon(
               Icons.arrow_forward_ios,
-              color: Color(0xff586BCA),
+            ),
+            leading: Container(
+              height: 18,
+              width: 18,
+              color: Theme.of(context).iconTheme.color,
+            ),
+            title: Text(
+              S.of(context).my_order,
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          ListTile(
+            onTap: () {},
+            trailing: const Icon(
+              Icons.arrow_forward_ios,
+            ),
+            leading: const Icon(Icons.location_on),
+            title: Text(
+              S.of(context).address,
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          ListTile(
+            onTap: () {},
+            trailing: const Icon(
+              Icons.arrow_forward_ios,
             ),
             leading: const Icon(
               Icons.payment,
-              color: Color(0xff586BCA),
             ),
             title: Text(
-              "Payment",
+              S.of(context).payment,
               style: GoogleFonts.poppins(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -151,16 +146,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           ListTile(
             onTap: () {},
-            trailing: Icon(
+            trailing: const Icon(
               Icons.arrow_forward_ios,
-              color: Color(0xff586BCA),
             ),
-            leading: Icon(
+            leading: const Icon(
               Icons.favorite,
-              color: Color(0xff586BCA),
             ),
             title: Text(
-              "Favorite",
+              S.of(context).favorite,
               style: GoogleFonts.poppins(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -169,16 +162,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           ListTile(
             onTap: () {},
-            trailing: Icon(
+            trailing: const Icon(
               Icons.arrow_forward_ios,
-              color: Color(0xff586BCA),
             ),
-            leading: Icon(
+            leading: const Icon(
               Icons.settings,
-              color: Color(0xff586BCA),
             ),
             title: Text(
-              "Settings",
+              S.of(context).settings,
               style: GoogleFonts.poppins(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,

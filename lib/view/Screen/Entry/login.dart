@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:store/view/Widget/botton_custom.dart';
 import 'package:store/view/Widget/text_field.dart';
 
+import '../../../generated/l10n.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -56,8 +58,8 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 children: [
                   TextFieldCustom(
-                      hintTitel: "Email",
-                      errorText: "Enter your Email",
+                      hintTitel: S.of(context).email,
+                      errorText:  S.of(context).enter_your_email,
                       isHide: false,
                       prefixIcon: const Icon(Icons.email, color: Colors.grey),
                       textInputType: TextInputType.emailAddress,
@@ -70,8 +72,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 20,
                   ),
                   TextFieldCustom(
-                      hintTitel: "Password",
-                      errorText: "Enter your Password",
+                      hintTitel:  S.of(context).password,
+                      errorText: S.of(context).enter_your_password,
                       isHide: _showPass,
                       prefixIcon: const Icon(Icons.lock, color: Colors.grey),
                       textInputType: TextInputType.visiblePassword,
@@ -102,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.pushNamed(context, "/forget_pass_screen");
                   },
                   child: Text(
-                    "Forgot Password?",
+                    S.of(context).forgot_password,
                     style: GoogleFonts.poppins(
                         fontSize: 12,
                         backgroundColor: Colors.transparent,
@@ -116,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 40,
             ),
             BottonCustom(
-                titel: "Sign In",
+                titel:  S.of(context).sign_in,
                 colorBotton: const Color(0xff586BCA),
                 textColorBotton: Colors.white,
                 fontSize: 14,
@@ -132,11 +134,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
                 style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all(Colors.transparent),
+                  MaterialStateProperty.all(Colors.transparent),
                   foregroundColor: MaterialStateProperty.all(Colors.white),
                 ),
                 child: Text(
-                  "Create an account?",
+                  S.of(context).create_an_account,
                   style: GoogleFonts.poppins(
                       fontSize: 15,
                       backgroundColor: Colors.transparent,
