@@ -11,6 +11,7 @@ import 'package:store/view/Screen/Bn_Screens/profile_screen.dart';
 import 'package:store/view/Screen/Entry/forget_pass_screen.dart';
 import 'package:store/view/Screen/Entry/login.dart';
 import 'package:store/view/Screen/Entry/register.dart';
+import 'package:store/view/Screen/Product/product_detiles.dart';
 import 'package:store/view/Screen/Start/choose_entry_screen.dart';
 import 'package:store/view/Screen/Start/luncher_app.dart';
 import 'package:store/view/Screen/Start/out_bording_screen.dart';
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
         "/home_screen": (context) => const HomeScreen(),
         "/bottom_screen": (context) => const BottomScreen(),
         "/profile_screen": (context) => const ProfileScreen(),
+        "/product_detiles": (context) => const ProductDetails(),
       },
       supportedLocales: const [
         Locale('ar', ''),
@@ -62,7 +64,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       theme: AppTheme.lightTheme,
-      initialRoute: "/profile_screen",
+      initialRoute: "/product_detiles",
     );
   }
 }

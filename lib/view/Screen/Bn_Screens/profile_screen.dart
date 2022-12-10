@@ -13,6 +13,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          toolbarHeight: 100.0,
         elevation: 0,
           leadingWidth: double.minPositive,
           automaticallyImplyLeading: false,

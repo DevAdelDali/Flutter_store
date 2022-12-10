@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   CustomCheckBoxGroup(
-                      height: 46,
+                      height: 90,
                       enableShape: true,
                       customShape: RoundedRectangleBorder(
                           side: const BorderSide(
@@ -126,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Row(
                       children: [
                        const  ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
                           child: Image(
                             image: AssetImage('images/offers3.jpg'),
                             height: 119,

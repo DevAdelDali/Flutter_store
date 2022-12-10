@@ -33,7 +33,7 @@ class _ChooseEnteyScreenState extends State<ChooseEnteyScreen> {
               height: 79,
             ),
             Image.asset(
-              "images/Illustration.png",
+              "images/Onbording/LigthTheme/Illustration.png",
               fit: BoxFit.contain,
               height: 289,
             ),

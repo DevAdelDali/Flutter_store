@@ -74,6 +74,7 @@ flutter:
     - images/
     - images/IconsApp/
     - images/Onbording/
+    - images/Onbording/LigthTheme/
     -
   #   - images/a_dot_ham.jpeg
 

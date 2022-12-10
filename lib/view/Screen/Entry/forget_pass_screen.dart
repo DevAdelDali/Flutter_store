@@ -33,6 +33,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
           leadingWidth: double.minPositive,
           automaticallyImplyLeading: false,
           title: GestureDetector(
