@@ -43,7 +43,7 @@ class _BottomScreenState extends State<BottomScreen> {
                 icon: Icon(Icons.shopping_cart),
               ),
               BottomNavigationBarItem(
-                label:S.of(context).favorite,
+                label: S.of(context).favorite,
                 icon: Icon(Icons.favorite),
               ),
               BottomNavigationBarItem(
