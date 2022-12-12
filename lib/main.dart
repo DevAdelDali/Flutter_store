@@ -27,15 +27,7 @@ void main() {
     child: MyApp(),
   ));
 }
-//****************************************************************************
 
-//Adel
-//khalidf
-//Adel
-//------------------------------------------------------------------khalid
-//------------------------------------------------------------------khalid
-//------------------------------------------------------------------khalid
-//------------------------------------------------------------------khalid
 Locale? locale;
 final MyController mycontroler = Get.find();
 
@@ -72,7 +64,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       theme: AppTheme.lightTheme,
-      initialRoute: "/bottom_screen",
+      initialRoute: "/luncher_app",
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:store/provider.dart';
 import 'package:store/view/Widget/botton_custom.dart';
 import 'package:store/view/Widget/text_field.dart';
 
@@ -46,7 +48,8 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 100.5,
             ),
             Image.asset(
-              "images/Logo-1.png",
+              Provider.of<MyProvider>(context).isLight()?'images/Luncher/Ligth/Logo.png':'images/Luncher/Dark/Logo.png'
+              ,
               height: 120,
               width: 120,
             ),

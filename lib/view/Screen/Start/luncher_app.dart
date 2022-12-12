@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:store/provider.dart';
 
 
 // ignore: camel_case_types
@@ -24,11 +26,11 @@ class _Luncher_APPState extends State<Luncher_APP> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body:  Center(
             child:  Image(
               fit: BoxFit.cover,
-          image: AssetImage("images/Logo.png"),
+          image: AssetImage(Provider.of<MyProvider>(context).isLight()?'images/Luncher/Ligth/Logo.png':'images/Luncher/Dark/Logo.png'),
           width: 180,
           height: 180,
         )

@@ -34,7 +34,7 @@ class _Out_BordingState extends State<Out_Bording> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -52,7 +52,7 @@ class _Out_BordingState extends State<Out_Bording> {
                     },
                     child: Text( S.of(context).start,
                         style: GoogleFonts.poppins(
-                          color: Colors.black,
+
                           fontSize: 20,
                         )),
                   ),
@@ -64,7 +64,7 @@ class _Out_BordingState extends State<Out_Bording> {
                     },
                     child: Text( S.of(context).skip,
                         style: GoogleFonts.poppins(
-                          color: Colors.black,
+
                           fontSize: 20,
                         )),
                   ),
