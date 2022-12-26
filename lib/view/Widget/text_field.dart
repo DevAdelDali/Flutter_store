@@ -7,7 +7,7 @@ class TextFieldCustom extends StatelessWidget {
     required this.hintTitel,
     required this.errorText,
     required this.isHide,
-     this.prefixIcon,
+    this.prefixIcon,
     this.safixIcon,
     required this.textInputType,
     required this.controller,
@@ -17,7 +17,7 @@ class TextFieldCustom extends StatelessWidget {
   final String errorText;
   bool isHide;
 
-  final Icon ? prefixIcon;
+  final Icon? prefixIcon;
   Widget? safixIcon;
   final TextInputType textInputType;
   final TextEditingController controller;
@@ -26,13 +26,12 @@ class TextFieldCustom extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
-      keyboardType: TextInputType.emailAddress,
+      keyboardType: textInputType,
       maxLines: 1,
       minLines: 1,
-style: GoogleFonts.poppins(height: 2),
+      style: GoogleFonts.poppins(height: 2),
       obscureText: isHide,
       decoration: InputDecoration(
-
         constraints: BoxConstraints(maxHeight: errorText == null ? 50 : 70),
 
         suffix: safixIcon,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:store/controller/controller.dart';
 import 'package:store/view/Widget/OnBordingPageViwe/page_indecator.dart';
 import 'package:store/view/Widget/OnBordingPageViwe/page_view_content.dart';
 
@@ -31,10 +33,11 @@ class _Out_BordingState extends State<Out_Bording> {
     super.dispose();
   }
 
+  MyController controller = Get.put(MyController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -50,9 +53,8 @@ class _Out_BordingState extends State<Out_Bording> {
                       Navigator.pushReplacementNamed(
                           context, "/choose_entry_screen");
                     },
-                    child: Text( S.of(context).start,
+                    child: Text(S.of(context).start,
                         style: GoogleFonts.poppins(
-
                           fontSize: 20,
                         )),
                   ),
@@ -62,9 +64,8 @@ class _Out_BordingState extends State<Out_Bording> {
                           duration: const Duration(seconds: 1),
                           curve: Curves.easeOutExpo);
                     },
-                    child: Text( S.of(context).skip,
+                    child: Text(S.of(context).skip,
                         style: GoogleFonts.poppins(
-
                           fontSize: 20,
                         )),
                   ),
@@ -83,17 +84,18 @@ class _Out_BordingState extends State<Out_Bording> {
                 children: [
                   PageView_Content(
                     img: "Black Friday-pana (1)",
-                    titel: "${ S.of(context).the_best_way} \n ${ S.of(context).an_off_beat_location}",
+                    titel:
+                        "${S.of(context).the_best_way} \n ${S.of(context).an_off_beat_location}",
                   ),
                   PageView_Content(
                     img: "Closed sign-bro (1)",
-                    titel:  S.of(context).realtime_tracking,
+                    titel: S.of(context).realtime_tracking,
                     subTitel: S.of(context).track_your,
                   ),
                   PageView_Content(
                     img: "Discount-rafiki",
-                    titel:  S.of(context).pickup_delivery,
-                    subTitel:  S.of(context).Receive_doorstep,
+                    titel: S.of(context).pickup_delivery,
+                    subTitel: S.of(context).Receive_doorstep,
                   ),
                 ],
               ),
@@ -124,9 +126,13 @@ class _Out_BordingState extends State<Out_Bording> {
                   ),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: _courantIndexTabPageviwe != 2
-                            ? Color(0xffAEB9F0)
-                            : Color(0xff586BCA),
+                        backgroundColor: controller.isLight()
+                            ? _courantIndexTabPageviwe != 2
+                                ? const Color(0xffAEB9F0)
+                                : const Color(0xff586BCA)
+                            : _courantIndexTabPageviwe != 2
+                                ? const Color(0xff9ae6e3)
+                                : const Color(0xff019592),
                         minimumSize: const Size(44, 50),
                         elevation: 8,
                         shape: RoundedRectangleBorder(

@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AppTheme {
   AppTheme._();
 
   static final ThemeData lightTheme = ThemeData(
+    progressIndicatorTheme: ProgressIndicatorThemeData(color: Color(0xff586BCA)),
     brightness: Brightness.light,
     listTileTheme: const ListTileThemeData(iconColor: Color(0xff586BCA)),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedItemColor: Color(0xff586BCA),
       unselectedItemColor: Colors.grey,
       backgroundColor: Colors.white,
+
     ),
-    appBarTheme: const AppBarTheme(color: Color(0xfff8f8f8),iconTheme: IconThemeData(
-      color: Color(0xff586BCA),
-      opacity: 1.0,
-      size: 24.0,
-    )),
+    appBarTheme: const AppBarTheme(
+        systemOverlayStyle: SystemUiOverlayStyle(),
+        color: Color(0xfff8f8f8),
+        iconTheme: IconThemeData(
+          color: Color(0xff586BCA),
+          opacity: 1.0,
+          size: 24.0,
+        )),
     primaryColor: const Color(0xff586BCA),
     canvasColor: const Color(0xff303030),
-    scaffoldBackgroundColor: const Color(0xfff8f8f8),
+    scaffoldBackgroundColor: const Color(0xfff7f7fe),
     bottomAppBarColor: const Color(0xffffffff),
     toggleableActiveColor: const Color(0xff586BCA),
     secondaryHeaderColor: const Color(0xff616161),
@@ -80,7 +86,7 @@ class AppTheme {
       ),
       headline1: TextStyle(
         color: Color(0xb3000000),
-        fontSize: 18.0,
+        fontSize: 20.0,
         fontWeight: FontWeight.bold,
       ),
       caption: TextStyle(
@@ -171,6 +177,8 @@ class AppTheme {
   );
 
   static final ThemeData darkTheme = ThemeData(
+    progressIndicatorTheme: ProgressIndicatorThemeData(color: Color(0xff009690)),
+
     brightness: Brightness.dark,
     listTileTheme: const ListTileThemeData(iconColor: Color(0xff009690)),
     appBarTheme: const AppBarTheme(

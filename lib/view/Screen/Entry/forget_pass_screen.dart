@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:store/controller/controller.dart';
 import 'package:store/view/Widget/botton_custom.dart';
 import 'package:store/view/Widget/text_field.dart';
 
@@ -31,11 +33,13 @@ class _ForgetScreenState extends State<ForgetScreen> {
     super.dispose();
   }
 
+  MyController controller = Get.put(MyController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
+          elevation: 0,
           leadingWidth: double.minPositive,
           automaticallyImplyLeading: false,
           title: GestureDetector(
@@ -48,7 +52,12 @@ class _ForgetScreenState extends State<ForgetScreen> {
                   onPressed: () {
                     Navigator.pushReplacementNamed(context, "/login");
                   },
-                  icon: Icon(Icons.arrow_back_ios, color: Color(0xff586BCA)),
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    color: controller.isLight()
+                        ? const Color(0xff586BCA)
+                        : const Color(0xff019592),
+                  ),
                 ),
                 Container(
                     height: 20,
@@ -57,14 +66,15 @@ class _ForgetScreenState extends State<ForgetScreen> {
                       "Back",
                       style: GoogleFonts.poppins(
                           fontSize: 16,
-                          color: Color(0xff586BCA),
+                          color: controller.isLight()
+                              ? const Color(0xff586BCA)
+                              : const Color(0xff019592),
                           fontWeight: FontWeight.bold),
                     ))
               ],
             ),
           )),
       body: Padding(
-
         padding: const EdgeInsets.symmetric(horizontal: 45.0),
         child: ListView(
           children: [
@@ -83,15 +93,18 @@ class _ForgetScreenState extends State<ForgetScreen> {
             ),
             TextFieldCustom(
                 hintTitel: S.of(context).enter_email,
-                errorText:S.of(context).error,
+                errorText: S.of(context).error,
                 isHide: false,
                 textInputType: TextInputType.text,
                 controller: _recavire_textEditingController),
             SizedBox(
               height: 20,
-            ), BottonCustom(
+            ),
+            BottonCustom(
                 titel: S.of(context).next,
-                colorBotton: const Color(0xff586BCA),
+                colorBotton: controller.isLight()
+                    ? const Color(0xff586BCA)
+                    : const Color(0xff019592),
                 textColorBotton: Colors.white,
                 fontSize: 14,
                 height: 50,

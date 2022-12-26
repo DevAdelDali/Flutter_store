@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-import 'package:store/provider.dart';
+import 'package:store/controller/controller.dart';
 
 class PageView_Content extends StatelessWidget {
-  const PageView_Content(
+   PageView_Content(
       {required this.img, required this.titel, this.subTitel = ""});
 
   final String img;
   final String titel;
   final String subTitel;
+  MyController controller = Get.put(MyController());
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class PageView_Content extends StatelessWidget {
         children: [
           Image(
             image: AssetImage(
-                Provider.of<MyProvider>(context).isLight()?'images/Onbording/LigthTheme/$img.png':'images/Onbording/DarkTheme/$img.png'
+                controller.isLight()?'images/Onbording/LigthTheme/$img.png':'images/Onbording/DarkTheme/$img.png'
 
 
                ),

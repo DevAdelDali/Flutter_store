@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:store/controller/controller.dart';
 import 'package:store/view/Widget/botton_custom.dart';
 
 import '../../../generated/l10n.dart';
@@ -12,6 +14,8 @@ class ChooseEnteyScreen extends StatefulWidget {
 }
 
 class _ChooseEnteyScreenState extends State<ChooseEnteyScreen> {
+  MyController controller = Get.put(MyController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +39,9 @@ class _ChooseEnteyScreenState extends State<ChooseEnteyScreen> {
               height: 79,
             ),
             Image.asset(
-              "images/Onbording/LigthTheme/Illustration.png",
+              controller.isLight()
+                  ? "images/Onbording/LigthTheme/Illustration.png"
+                  : "images/Onbording/DarkTheme/Illustration.png",
               fit: BoxFit.contain,
               height: 289,
             ),
@@ -47,22 +53,24 @@ class _ChooseEnteyScreenState extends State<ChooseEnteyScreen> {
               children: [
                 const SizedBox(width: 45),
                 BottonCustom(
-                    onTap: () =>
-                        Navigator.pushReplacementNamed(context, "/login"),
+                    onTap: () => Navigator.pushNamed(context, "/login"),
                     fontSize: 14,
                     titel: S.of(context).sign_in,
-                    colorBotton: const Color(0xff586BCA),
+                    colorBotton: controller.isLight()
+                        ? const Color(0xff586BCA)
+                        : const Color(0xff019592),
                     textColorBotton: Colors.white,
                     height: 60,
                     width: 135),
                 // SizedBox(width: 20),
                 BottonCustom(
-                  onTap: () =>
-                      Navigator.pushReplacementNamed(context, "/register"),
+                  onTap: () => Navigator.pushNamed(context, "/register"),
                   fontSize: 14,
                   titel: S.of(context).sign_up,
                   colorBotton: Colors.white,
-                  textColorBotton: const Color(0xff586BCA),
+                  textColorBotton: controller.isLight()
+                      ? const Color(0xff586BCA)
+                      : const Color(0xff019592),
                   height: 60,
                   width: 135,
                   existBorder: true,

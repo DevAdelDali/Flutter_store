@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:store/controller/api_response.dart';
+import 'package:store/controller/controller.dart';
+import 'package:store/model/user.dart';
+import 'package:store/shared_preferences.dart';
 
 import '../../../generated/l10n.dart';
 
@@ -48,11 +53,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
               IconButton(
-                onPressed: () {
-                  // Navigator.pushReplacementNamed(context, "/home_screen");
+                onPressed: () async {
+                  await logout(context);
                 },
                 icon: const Icon(
-                  Icons.edit,
+                  Icons.login_rounded,
                 ),
               ),
             ],
@@ -65,13 +70,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
           const CircleAvatar(
             radius: 50,
             child: Image(
-              image: AssetImage("images/Profile Picture.png"),
+              image: AssetImage("images/offers3.jpg"),
+              fit: BoxFit.fill,
             ),
           ),
           const SizedBox(
             height: 20,
           ),
-          Text(S.of(context).name,
+          Text('khalid Tanboura',
               textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
                 fontSize: 20,
@@ -179,5 +185,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ],
       ),
     );
+  }
+
+  Future<void> logout(BuildContext context) async {
+    UserApiResponse apiResponse = await MyController().logout();
+    print('%%%%%%%%%%5${apiResponse.message}');
+    if (apiResponse.success) {
+      MySharedPreferences().clear();
+      Navigator.pushReplacementNamed(context, '/choose_entry_screen');
+    }
   }
 }

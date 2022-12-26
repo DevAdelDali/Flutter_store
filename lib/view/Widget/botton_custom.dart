@@ -30,17 +30,15 @@ class BottonCustom extends StatelessWidget {
             elevation: 5,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
-                side: BorderSide(
-                    width: 1,
-                    color: existBorder == true
-                        ? const Color(0xff586BCA)
-                        : Colors.transparent)),
+                side: BorderSide(width: 1, color: Colors.transparent)),
             backgroundColor: colorBotton!,
             minimumSize: Size(width!, height!)),
         child: Text(
           titel!,
-          style:
-              GoogleFonts.poppins(fontSize: fontSize!, color: textColorBotton!,fontWeight: FontWeight.bold),
+          style: GoogleFonts.poppins(
+              fontSize: fontSize!,
+              color: textColorBotton!,
+              fontWeight: FontWeight.bold),
         ));
   }
 }
