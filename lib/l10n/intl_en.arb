@@ -39,8 +39,8 @@
   "track_your": "Track your delivery in realtime.",
   "pickup_delivery": "Pickup Delivery",
   "Receive_doorstep": "Receive doorstep delivery and best discounts",
-  "adel": "adel al dali",
-
+  "delete_from_cart": "Delete from Cart",
+  "add_to_cart": "Add to Cart",
   "@helloWorld": {
     "description": "The conventional newborn programmer greeting"
   }

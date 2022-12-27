@@ -29,7 +29,7 @@ class _BottomScreenState extends State<BottomScreen> {
       child: Scaffold(
         bottomNavigationBar: Container(
           child: ClipRRect(
-            borderRadius: BorderRadius.all(
+            borderRadius: const BorderRadius.all(
               Radius.circular(30),
             ),
             child: BottomNavigationBar(
@@ -43,19 +43,19 @@ class _BottomScreenState extends State<BottomScreen> {
                 items: [
                   BottomNavigationBarItem(
                     label: S.of(context).home,
-                    icon: Icon(Icons.home),
+                    icon: const Icon(Icons.home),
                   ),
                   BottomNavigationBarItem(
                     label: S.of(context).cart,
-                    icon: Icon(Icons.shopping_cart),
+                    icon: const Icon(Icons.shopping_cart),
                   ),
                   BottomNavigationBarItem(
                     label: S.of(context).favorite,
-                    icon: Icon(Icons.favorite),
+                    icon: const Icon(Icons.favorite),
                   ),
                   BottomNavigationBarItem(
                     label: S.of(context).profile,
-                    icon: Icon(Icons.person),
+                    icon: const Icon(Icons.person),
                   ),
                 ]),
           ),

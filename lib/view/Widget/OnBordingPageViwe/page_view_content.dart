@@ -16,7 +16,7 @@ class PageView_Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
 
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,

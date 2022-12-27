@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:store/controller/api_response.dart';
 import 'package:store/controller/controller.dart';
-import 'package:store/model/user.dart';
 import 'package:store/shared_preferences.dart';
 
 import '../../../generated/l10n.dart';
@@ -20,7 +18,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          toolbarHeight: 100.0,
           elevation: 0,
           leadingWidth: double.minPositive,
           automaticallyImplyLeading: false,
@@ -39,16 +36,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   GestureDetector(
                     onTap: () => Navigator.pushReplacementNamed(
                         context, "/bottom_screen"),
-                    child: SizedBox(
-                        height: 20,
-                        width: 100,
-                        child: Text(
-                          S.of(context).back,
-                          style: GoogleFonts.poppins(
-                              fontSize: 16,
-                              color: Theme.of(context).iconTheme.color,
-                              fontWeight: FontWeight.bold),
-                        )),
+                    child: Text(
+                      S.of(context).back,
+                      style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          color: Theme.of(context).iconTheme.color,
+                          fontWeight: FontWeight.bold),
+                    ),
                   )
                 ],
               ),
@@ -62,127 +56,133 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ],
           )),
-      body: ListView(
-        children: [
-          const SizedBox(
-            height: 25,
-          ),
-          const CircleAvatar(
-            radius: 50,
-            child: Image(
-              image: AssetImage("images/offers3.jpg"),
-              fit: BoxFit.fill,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 25,
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Text('khalid Tanboura',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.poppins(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              )),
-          const SizedBox(
-            height: 79,
-          ),
-          ListTile(
-            onTap: () {},
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
-            ),
-            leading: const Icon(
-              Icons.notifications_active,
-            ),
-            title: Text(
-              S.of(context).notifications,
-              style: GoogleFonts.poppins(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+            Container(
+              width: 130,
+              height: 130,
+              child: const ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(100)),
+                child: Image(
+                  image: AssetImage("images/offers.jpg"),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          ListTile(
-            onTap: () {},
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
+            const SizedBox(
+              height: 20,
             ),
-            leading: Container(
-              height: 18,
-              width: 18,
-              color: Theme.of(context).iconTheme.color,
+            Text('khalid Tanboura',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                )),
+            const SizedBox(
+              height: 79,
             ),
-            title: Text(
-              S.of(context).my_order,
-              style: GoogleFonts.poppins(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+            ListTile(
+              onTap: () {},
+              trailing: const Icon(
+                Icons.arrow_forward_ios,
+              ),
+              leading: const Icon(
+                Icons.notifications_active,
+              ),
+              title: Text(
+                S.of(context).notifications,
+                style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-          ListTile(
-            onTap: () {},
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
-            ),
-            leading: const Icon(Icons.location_on),
-            title: Text(
-              S.of(context).address,
-              style: GoogleFonts.poppins(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+            ListTile(
+              onTap: () {},
+              trailing: const Icon(
+                Icons.arrow_forward_ios,
+              ),
+              leading: Container(
+                height: 18,
+                width: 18,
+                color: Theme.of(context).iconTheme.color,
+              ),
+              title: Text(
+                S.of(context).my_order,
+                style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-          ListTile(
-            onTap: () {},
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
-            ),
-            leading: const Icon(
-              Icons.payment,
-            ),
-            title: Text(
-              S.of(context).payment,
-              style: GoogleFonts.poppins(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+            ListTile(
+              onTap: () {},
+              trailing: const Icon(
+                Icons.arrow_forward_ios,
+              ),
+              leading: const Icon(Icons.location_on),
+              title: Text(
+                S.of(context).address,
+                style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-          ListTile(
-            onTap: () {},
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
-            ),
-            leading: const Icon(
-              Icons.favorite,
-            ),
-            title: Text(
-              S.of(context).favorite,
-              style: GoogleFonts.poppins(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+            ListTile(
+              onTap: () {},
+              trailing: const Icon(
+                Icons.arrow_forward_ios,
+              ),
+              leading: const Icon(
+                Icons.payment,
+              ),
+              title: Text(
+                S.of(context).payment,
+                style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-          ListTile(
-            onTap: () {},
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
-            ),
-            leading: const Icon(
-              Icons.settings,
-            ),
-            title: Text(
-              S.of(context).settings,
-              style: GoogleFonts.poppins(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+            ListTile(
+              onTap: () {},
+              trailing: const Icon(
+                Icons.arrow_forward_ios,
+              ),
+              leading: const Icon(
+                Icons.favorite,
+              ),
+              title: Text(
+                S.of(context).favorite,
+                style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-        ],
+            ListTile(
+              onTap: () {},
+              trailing: const Icon(
+                Icons.arrow_forward_ios,
+              ),
+              leading: const Icon(
+                Icons.settings,
+              ),
+              title: Text(
+                S.of(context).settings,
+                style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -6,9 +6,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import 'package:store/controller/cart_api_response.dart';
 import 'package:store/controller/controller.dart';
-import 'package:store/model/cart.dart';
 import 'package:store/model/categories.dart';
 import 'package:store/model/product.dart';
+import 'package:store/view/Screen/Bn_Screens/test.dart';
 import 'package:store/view/Screen/Product/product_detiles.dart';
 import 'package:store/view/Screen/Product/product_search.dart';
 
@@ -69,6 +69,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   FutureBuilder<List<CategoriesData>>(
                     future: MyController().fetchHomeCategories(),
                     builder: (context, snapshot) {
+                      print('=================??????=${Test.product[55]}');
+
                       List<String> newList = [];
                       try {
                         for (int i = 0; i < snapshot.data!.length; i++) {
@@ -111,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ? Colors.white
                                 : const Color(0xff2a2a2a));
                       } else {
-                        return Text('No Data');
+                        return const Text('No Data');
                       }
                     },
                   ),
@@ -192,8 +194,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        ProductDetails(index: index)));
+                                    builder: (context) => ProductDetails(
+                                        index: Test.product[
+                                            snapshot.data![index].id]!)));
                           },
                           child: Row(
                             children: [
@@ -202,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 width: 120,
                                 child: ClipRRect(
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                      const BorderRadius.all(Radius.circular(10)),
                                   child: Image.network(
                                     snapshot.data![index].image!,
                                     fit: BoxFit.contain,
@@ -291,7 +294,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   );
                 } else {
-                  return Text('No Data');
+                  return const Text('No Data');
                 }
               },
             )

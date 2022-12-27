@@ -13,12 +13,14 @@ import 'package:store/model/categories.dart';
 import 'package:store/model/favorite.dart';
 import 'package:store/model/user.dart';
 import 'package:store/shared_preferences.dart';
+import 'package:store/view/Screen/Bn_Screens/test.dart';
 import '../model/banner.dart';
 import '../model/product.dart';
 import 'favorite_api_response.dart';
 
 class MyController extends GetxController {
   bool isSelect = true;
+  int indexCount = 0;
 
   Future<List<Banners>> fetchHomeBanner() async {
     try {
@@ -27,6 +29,7 @@ class MyController extends GetxController {
       if (res.statusCode == 200) {
         var responseJson = jsonDecode(res.body);
         var responsObjects = responseJson['data']['banners'] as List;
+
         return responsObjects.map((e) => Banners.fromJson(e)).toList();
       }
     } catch (e) {
@@ -49,6 +52,13 @@ class MyController extends GetxController {
       if (res.statusCode == 200) {
         var responseJson = jsonDecode(res.body);
         var responsObjects = responseJson['data']['data'] as List;
+
+        responsObjects
+            .map((e) => Products.fromJson(e))
+            .toList()
+            .forEach((element) {
+          Test.product.addAll({element.id!: indexCount++});
+        });
         return responsObjects.map((e) => Products.fromJson(e)).toList();
       }
     } catch (e) {
@@ -56,7 +66,7 @@ class MyController extends GetxController {
     }
     return [];
   }
-
+//##############################################
   Future<List<Products>> fetchListProducts({String? query}) async {
     try {
       const String url = 'https://student.valuxapps.com/api/home';
@@ -94,14 +104,19 @@ class MyController extends GetxController {
     }
     return [];
   }
-
+//##############################################
   Future<UserApiResponse> login(
       {required String email, required String password}) async {
     const String url = 'https://student.valuxapps.com/api/login';
-    http.Response res = await http
-        .post(Uri.parse(url), body: {'email': email, 'password': password});
+    print('&&&&&&&&&&&');
+
+    http.Response res = await http.post(Uri.parse(url),
+        body: {'email': email, 'password': password},
+        headers: {'lang': Platform.localeName == 'en_US' ? 'en' : 'ar'});
 
     var responseJson = jsonDecode(res.body);
+    print('&&&&&&&&&&&${responseJson['message']}');
+    Get.snackbar('Error!', responseJson['message']);
     if (res.statusCode == 200) {
       User user = User.fromJson(responseJson['data']);
       MySharedPreferences().saveLogin(user);
@@ -117,9 +132,12 @@ class MyController extends GetxController {
       'email': user.email,
       'password': user.password,
       'phone': user.phone
+    }, headers: {
+      'lang': Platform.localeName == 'en_US' ? 'en' : 'ar'
     });
 
     var responseJson = jsonDecode(res.body);
+    Get.snackbar('Error!', responseJson['message']);
     if (res.statusCode == 200) {
       return UserApiResponse(responseJson['message'], responseJson['status']);
     }
@@ -132,19 +150,20 @@ class MyController extends GetxController {
     print(token);
     const String url = 'https://student.valuxapps.com/api/logout';
     http.Response res = await http.post(Uri.parse(url), headers: {
-      HttpHeaders.authorizationHeader: token
-      // HttpHeaders.contentTypeHeader: 'application/json'
+      HttpHeaders.authorizationHeader: token,
+      'lang': Platform.localeName == 'en_US' ? 'en' : 'ar'
     });
     if (res.statusCode == 200 || res.statusCode == 401) {
       if (res.statusCode == 200) {
         var responseJson = jsonDecode(res.body);
+        Get.snackbar('Error!', responseJson['message']);
         return UserApiResponse(responseJson['message'], responseJson['status']);
       }
       return UserApiResponse('Error!', true);
     }
     return UserApiResponse('Error ', false);
   }
-
+//##############################################
   Future<CartApiResponse> cart({required int id}) async {
     String token =
         MySharedPreferences().getValueFor<String>(key: Shared.token.name) ?? '';
@@ -154,7 +173,6 @@ class MyController extends GetxController {
         headers: {HttpHeaders.authorizationHeader: token});
 
     var responseJson = jsonDecode(res.body);
-    print('============${responseJson['data']}');
     print('____________$token');
     if (res.statusCode == 200) {
       // Cart cart = Cart.fromJson(responseJson['data']);
@@ -185,7 +203,7 @@ class MyController extends GetxController {
     }
     return [];
   }
-
+//##############################################
   Future<FavoriteApiResponse> favorite({required int id}) async {
     String token =
         MySharedPreferences().getValueFor<String>(key: Shared.token.name) ?? '';
@@ -198,10 +216,12 @@ class MyController extends GetxController {
     if (res.statusCode == 200) {
       // Cart cart = Cart.fromJson(responseJson['data']);
 
-      return FavoriteApiResponse(responseJson['message'], responseJson['status']);
+      return FavoriteApiResponse(
+          responseJson['message'], responseJson['status']);
     }
     return FavoriteApiResponse('Error ', false);
   }
+
   Future<List<Favorite>> fetchFavroite() async {
     try {
       String token =
@@ -223,8 +243,7 @@ class MyController extends GetxController {
     }
     return [];
   }
-
-
+//##############################################
   bool isLight() {
     return SchedulerBinding.instance.window.platformBrightness ==
         Brightness.light;

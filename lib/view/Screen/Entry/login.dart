@@ -1,10 +1,7 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:store/controller/api_response.dart';
-import 'package:store/shared_preferences.dart';
 import 'package:store/view/Widget/botton_custom.dart';
 import 'package:store/view/Widget/text_field.dart';
 
@@ -68,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   TextFieldCustom(
                       hintTitel: S.of(context).email,
-                      errorText: S.of(context).enter_your_email,
+                      errorText:S.of(context).enter_your_email,
                       isHide: false,
                       prefixIcon: const Icon(Icons.email, color: Colors.grey),
                       textInputType: TextInputType.emailAddress,
@@ -184,16 +181,16 @@ class _LoginScreenState extends State<LoginScreen> {
     return false;
   }
 
+
   Future<void> _login() async {
     print('_------${_chckData()}');
     UserApiResponse apiResponse = await MyController().login(
         email: _login_emailControler.text,
         password: _login_passwordControler.text);
     print('!!!!!!!!!!!${apiResponse.message}');
-    SnackBar(content:  Text('${apiResponse.message}'));
     if (apiResponse.success) {
       Navigator.pushReplacementNamed(context, '/bottom_screen');
     }
-    SnackBar(content: Text(apiResponse.message));
+
   }
 }

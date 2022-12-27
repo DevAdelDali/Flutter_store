@@ -5,14 +5,14 @@ class AppTheme {
   AppTheme._();
 
   static final ThemeData lightTheme = ThemeData(
-    progressIndicatorTheme: ProgressIndicatorThemeData(color: Color(0xff586BCA)),
+    progressIndicatorTheme:
+        const ProgressIndicatorThemeData(color: Color(0xff586BCA)),
     brightness: Brightness.light,
     listTileTheme: const ListTileThemeData(iconColor: Color(0xff586BCA)),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedItemColor: Color(0xff586BCA),
       unselectedItemColor: Colors.grey,
       backgroundColor: Colors.white,
-
     ),
     appBarTheme: const AppBarTheme(
         systemOverlayStyle: SystemUiOverlayStyle(),
@@ -164,7 +164,7 @@ class AppTheme {
       opacity: 1.0,
       size: 24.0,
     ),
-    primaryIconTheme: IconThemeData(
+    primaryIconTheme: const IconThemeData(
       color: Color(0xff586BCA),
       opacity: 1.0,
       size: 24.0,
@@ -177,8 +177,8 @@ class AppTheme {
   );
 
   static final ThemeData darkTheme = ThemeData(
-    progressIndicatorTheme: ProgressIndicatorThemeData(color: Color(0xff009690)),
-
+    progressIndicatorTheme:
+        const ProgressIndicatorThemeData(color: Color(0xff009690)),
     brightness: Brightness.dark,
     listTileTheme: const ListTileThemeData(iconColor: Color(0xff009690)),
     appBarTheme: const AppBarTheme(

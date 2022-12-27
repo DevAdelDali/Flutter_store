@@ -27,7 +27,7 @@ class Page_Indecator extends StatelessWidget {
               ? controller.isLight()
                   ? const Color(0xff586BCA)
                   : const Color(0xff019592)
-              : Color(0xff464646),
+              : const Color(0xff464646),
           borderRadius: BorderRadius.circular(10)),
     );
   }

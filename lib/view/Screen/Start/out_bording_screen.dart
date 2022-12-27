@@ -104,7 +104,7 @@ class _Out_BordingState extends State<Out_Bording> {
               height: 120.2,
             ),
             Container(
-              padding: EdgeInsetsDirectional.only(start: 29, end: 23.5),
+              padding: const EdgeInsetsDirectional.only(start: 29, end: 23.5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [

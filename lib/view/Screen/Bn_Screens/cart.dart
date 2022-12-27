@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:store/controller/controller.dart';
+import 'package:store/generated/l10n.dart';
 import 'package:store/model/cart.dart';
+import 'package:store/view/Screen/Bn_Screens/test.dart';
 
 import '../Product/product_detiles.dart';
 
@@ -22,7 +24,7 @@ class _CartScreenState extends State<CartScreen> {
       appBar: AppBar(
         elevation: 2,
         title: Text(
-          'Cart',
+          S.of(context).cart,
           style: Theme.of(context).textTheme.headline1,
         ),
         centerTitle: true,
@@ -45,7 +47,7 @@ class _CartScreenState extends State<CartScreen> {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
             return ListView.separated(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               separatorBuilder: (BuildContext context, int i) => const SizedBox(
                 height: 12,
               ),
@@ -53,6 +55,7 @@ class _CartScreenState extends State<CartScreen> {
               shrinkWrap: true,
               itemCount: snapshot.data!.length,
               itemBuilder: (context, int index) {
+                print(Test.product[55]);
                 return Slidable(
                   startActionPane: ActionPane(
                     motion: const ScrollMotion(),
@@ -88,8 +91,9 @@ class _CartScreenState extends State<CartScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    ProductDetails(index: index)));
+                                builder: (context) => ProductDetails(
+                                    index: Test.product[
+                                        snapshot.data![index].product!.id]!)));
                       },
                       child: Row(
                         children: [
@@ -98,7 +102,7 @@ class _CartScreenState extends State<CartScreen> {
                             width: 120,
                             child: ClipRRect(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                  const BorderRadius.all(Radius.circular(10)),
                               child: Image.network(
                                 snapshot.data![index].product!.image!,
                                 fit: BoxFit.contain,
@@ -187,7 +191,7 @@ class _CartScreenState extends State<CartScreen> {
               },
             );
           } else {
-            return Text('No Data');
+            return const Text('No Data');
           }
         },
       ),

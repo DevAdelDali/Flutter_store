@@ -64,7 +64,8 @@ class SearchProducts extends SearchDelegate {
                         height: 120,
                         width: 120,
                         child: ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10)),
                           child: Image.network(
                             snapshot.data![index].image!,
                             fit: BoxFit.contain,
@@ -133,7 +134,7 @@ class SearchProducts extends SearchDelegate {
             },
           );
         } else {
-          return Center(child: const Text('No Data'));
+          return const Center(child: Text('No Data'));
         }
       },
     );
@@ -141,6 +142,6 @@ class SearchProducts extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Center(child: Text('no data'));
+    return const Center(child: Text('no data'));
   }
 }

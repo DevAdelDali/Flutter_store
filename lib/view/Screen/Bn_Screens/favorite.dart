@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:store/controller/controller.dart';
-import 'package:store/model/cart.dart';
+import 'package:store/generated/l10n.dart';
 import 'package:store/model/favorite.dart';
+import 'package:store/view/Screen/Bn_Screens/test.dart';
 
 import '../Product/product_detiles.dart';
 
@@ -23,7 +24,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
       appBar: AppBar(
         elevation: 2,
         title: Text(
-          'Cart',
+          S.of(context).favorite,
           style: Theme.of(context).textTheme.headline1,
         ),
         centerTitle: true,
@@ -46,7 +47,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
             return ListView.separated(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               separatorBuilder: (BuildContext context, int i) => const SizedBox(
                 height: 12,
               ),
@@ -89,8 +90,9 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    ProductDetails(index: index)));
+                                builder: (context) => ProductDetails(
+                                    index: Test.product[
+                                        snapshot.data![index].product!.id]!)));
                       },
                       child: Row(
                         children: [
@@ -99,7 +101,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                             width: 120,
                             child: ClipRRect(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                  const BorderRadius.all(Radius.circular(10)),
                               child: Image.network(
                                 snapshot.data![index].product!.image!,
                                 fit: BoxFit.contain,
@@ -188,7 +190,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               },
             );
           } else {
-            return Text('No Data');
+            return const Text('No Data');
           }
         },
       ),

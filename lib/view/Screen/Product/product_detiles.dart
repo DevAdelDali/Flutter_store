@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:store/controller/controller.dart';
+import 'package:store/generated/l10n.dart';
 import 'package:store/model/product.dart';
 import 'package:store/view/Widget/botton_custom.dart';
 
@@ -55,7 +56,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   height: 20,
                                   width: 100,
                                   child: Text(
-                                    "Back",
+                                    S.of(context).back,
                                     style: GoogleFonts.poppins(
                                         fontSize: 16,
                                         color: controller.isLight()
@@ -170,17 +171,39 @@ class _ProductDetailsState extends State<ProductDetails> {
                       const SizedBox(
                         height: 10,
                       ),
-                      BottonCustom(
-                        titel: "Add to Cart",
-                        colorBotton: controller.isLight()
-                            ? const Color(0xff586BCA)
-                            : const Color(0xff019592),
-                        textColorBotton: Colors.white,
-                        fontSize: 15,
-                        height: 50,
-                        width: 285,
-                        onTap: () {},
-                      )
+                      snapshot.data![widget.index].inCart!
+                          ? BottonCustom(
+                              titel: S.of(context).delete_from_cart,
+                              colorBotton: controller.isLight()
+                                  ? const Color(0xff586BCA)
+                                  : const Color(0xff019592),
+                              textColorBotton: Colors.white,
+                              fontSize: 15,
+                              height: 50,
+                              width: 285,
+                              onTap: () {
+                                setState(() {
+                                  controller.cart(
+                                      id: snapshot.data![widget.index].id!);
+                                });
+                              },
+                            )
+                          : BottonCustom(
+                              titel: S.of(context).add_to_cart,
+                              colorBotton: controller.isLight()
+                                  ? const Color(0xff586BCA)
+                                  : const Color(0xff019592),
+                              textColorBotton: Colors.white,
+                              fontSize: 15,
+                              height: 50,
+                              width: 285,
+                              onTap: () {
+                                setState(() {
+                                  controller.cart(
+                                      id: snapshot.data![widget.index].id!);
+                                });
+                              },
+                            ),
                     ],
                   ),
                 ));

@@ -24,8 +24,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Receive_doorstep": MessageLookupByLibrary.simpleMessage(
             "احصل على خدمة التوصيل عند الباب وأفضل الخصومات"),
+        "add_to_cart": MessageLookupByLibrary.simpleMessage("اضف الى السلة"),
         "address": MessageLookupByLibrary.simpleMessage("العنوان"),
-        "adel": MessageLookupByLibrary.simpleMessage("عادل الدالي"),
         "already_have_account":
             MessageLookupByLibrary.simpleMessage("لدي حساب بالفعل؟"),
         "an_off_beat_location":
@@ -34,6 +34,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "cart": MessageLookupByLibrary.simpleMessage("السلة"),
         "create_an_account":
             MessageLookupByLibrary.simpleMessage("انشاء حساب جديد؟"),
+        "delete_from_cart":
+            MessageLookupByLibrary.simpleMessage("حذف من السلة"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني "),
         "enter_email": MessageLookupByLibrary.simpleMessage(
             "ادخل البريد الالكتروني ورقم الهاتف"),

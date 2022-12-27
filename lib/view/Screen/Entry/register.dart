@@ -116,7 +116,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       hintTitel: S.of(context).password,
                       errorText: S.of(context).enter_your_password,
                       isHide: _showPass,
-                      prefixIcon: Icon(Icons.lock, color: Colors.grey),
+                      prefixIcon: const Icon(Icons.lock, color: Colors.grey),
                       textInputType: TextInputType.visiblePassword,
                       controller: _register_passwordControler,
                       safixIcon: IconButton(
@@ -197,7 +197,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     if (apiResponse.success) {
       Navigator.pushReplacementNamed(context, '/login');
     }
-    SnackBar(content: Text('${apiResponse.message}'));
+    SnackBar(content: Text(apiResponse.message));
   }
 
   User get user {

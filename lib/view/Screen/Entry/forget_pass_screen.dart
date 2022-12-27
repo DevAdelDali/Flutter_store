@@ -59,7 +59,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
                         : const Color(0xff019592),
                   ),
                 ),
-                Container(
+                SizedBox(
                     height: 20,
                     width: 100,
                     child: Text(
@@ -78,7 +78,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 45.0),
         child: ListView(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
             Text(
@@ -88,7 +88,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
                   color: Colors.black,
                   fontSize: 25),
             ),
-            SizedBox(
+            const SizedBox(
               height: 189,
             ),
             TextFieldCustom(
@@ -97,7 +97,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
                 isHide: false,
                 textInputType: TextInputType.text,
                 controller: _recavire_textEditingController),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             BottonCustom(

@@ -450,11 +450,21 @@ class S {
     );
   }
 
-  /// `adel al dali`
-  String get adel {
+  /// `Delete from Cart`
+  String get delete_from_cart {
     return Intl.message(
-      'adel al dali',
-      name: 'adel',
+      'Delete from Cart',
+      name: 'delete_from_cart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add to Cart`
+  String get add_to_cart {
+    return Intl.message(
+      'Add to Cart',
+      name: 'add_to_cart',
       desc: '',
       args: [],
     );
