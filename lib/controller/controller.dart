@@ -66,6 +66,7 @@ class MyController extends GetxController {
     }
     return [];
   }
+
 //##############################################
   Future<List<Products>> fetchListProducts({String? query}) async {
     try {
@@ -104,6 +105,7 @@ class MyController extends GetxController {
     }
     return [];
   }
+
 //##############################################
   Future<UserApiResponse> login(
       {required String email, required String password}) async {
@@ -163,6 +165,39 @@ class MyController extends GetxController {
     }
     return UserApiResponse('Error ', false);
   }
+
+  Future<User?> profileData() async {
+    try {
+      String token =
+          MySharedPreferences().getValueFor<String>(key: Shared.token.name) ??
+              '';
+      const String url = 'https://student.valuxapps.com/api/profile';
+      http.Response res = await http.get(Uri.parse(url),
+          headers: {HttpHeaders.authorizationHeader: token});
+
+      if (res.statusCode == 200) {
+        var responseJson = jsonDecode(res.body);
+
+        var responsObjects = responseJson['data'];
+        print('%%%%%%%%%%%%%%%%%%%%%55${responsObjects}');
+
+        return User(
+          responsObjects['id'],
+          responsObjects['name'],
+          responsObjects['email'],
+          responsObjects['phone'],
+          responsObjects['image'],
+          responsObjects['points'],
+          responsObjects['credit'],
+          responsObjects['token'],
+        );
+      }
+    } catch (e) {
+      Get.snackbar('Error!', e.toString());
+    }
+    return null;
+  }
+
 //##############################################
   Future<CartApiResponse> cart({required int id}) async {
     String token =
@@ -203,6 +238,7 @@ class MyController extends GetxController {
     }
     return [];
   }
+
 //##############################################
   Future<FavoriteApiResponse> favorite({required int id}) async {
     String token =
@@ -243,6 +279,7 @@ class MyController extends GetxController {
     }
     return [];
   }
+
 //##############################################
   bool isLight() {
     return SchedulerBinding.instance.window.platformBrightness ==

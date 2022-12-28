@@ -49,8 +49,8 @@ class MyApp extends StatelessWidget {
         "/product_detiles": (context) => ProductDetails(index: 0),
       },
       supportedLocales: const [
-        Locale('ar', ''),
         Locale('en', ''),
+        Locale('ar', '')
       ],
       locale: const Locale("en", "ar"),
       localizationsDelegates: const [

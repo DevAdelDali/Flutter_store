@@ -191,7 +191,7 @@ class _CartScreenState extends State<CartScreen> {
               },
             );
           } else {
-            return const Text('No Data');
+            return const Center(child: Text('No Product in Cart 🛒',style: TextStyle(fontSize:30 )));
           }
         },
       ),

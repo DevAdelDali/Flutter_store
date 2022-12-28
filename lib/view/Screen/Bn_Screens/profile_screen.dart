@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:store/controller/api_response.dart';
 import 'package:store/controller/controller.dart';
+import 'package:store/model/user.dart';
 import 'package:store/shared_preferences.dart';
 
 import '../../../generated/l10n.dart';
@@ -76,12 +77,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const SizedBox(
               height: 20,
             ),
-            Text('khalid Tanboura',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                )),
+            FutureBuilder<User?>(
+                future: MyController().profileData(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasData) {
+                    return Text(snapshot.data!.name,
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.poppins(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ));
+                  } else {
+                    return Center(
+                      child: Text('no data'),
+                    );
+                  }
+                }),
             const SizedBox(
               height: 79,
             ),

@@ -8,7 +8,10 @@ class User {
   late int credit;
   late String token;
   late String password;
-User();
+
+  User(this.id, this.name, this.email, this.phone, this.image, this.points,
+      this.credit, this.token);
+User.n();
   User.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];

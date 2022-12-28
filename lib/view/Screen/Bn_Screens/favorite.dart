@@ -73,7 +73,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                         backgroundColor: const Color(0xFFFE4A49),
                         foregroundColor: Colors.white,
                         icon: Icons.delete,
-                        label: 'Remove \nform cart',
+                        label: 'Remove \nform Favorite',
                       ),
                     ],
                   ),
@@ -190,7 +190,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               },
             );
           } else {
-            return const Text('No Data');
+            return const Center(child: Text('No Product in Favorite',style: TextStyle(fontSize:30 )));
           }
         },
       ),

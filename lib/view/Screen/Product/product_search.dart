@@ -134,7 +134,11 @@ class SearchProducts extends SearchDelegate {
             },
           );
         } else {
-          return const Center(child: Text('No Data'));
+          return const Center(
+              child: Text(
+            'No Data 💔',
+            style: TextStyle(fontSize: 40),
+          ));
         }
       },
     );

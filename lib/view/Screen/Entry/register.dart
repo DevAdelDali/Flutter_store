@@ -90,7 +90,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       prefixIcon: const Icon(Icons.email, color: Colors.grey),
                       textInputType: TextInputType.emailAddress,
                       controller: _register_emailControler,
-
                       safixIcon: const Icon(
                         Icons.done,
                         color: Colors.green,
@@ -201,7 +200,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   User get user {
-    User user = User();
+    User user = User.n();
     user.name = _register_nameControler.text;
     user.email = _register_emailControler.text;
     user.password = _register_passwordControler.text;
