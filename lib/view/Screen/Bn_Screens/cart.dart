@@ -136,22 +136,6 @@ class _CartScreenState extends State<CartScreen> {
                                                 18) /* Theme.of(context).textTheme.headline1*/,
                                       ),
                                     ),
-                                    /*  FavoriteButton(
-                                      iconData: Icons.shopping_cart_outlined,
-                                      isFavorite:
-                                          snapshot.data![index].product!.inCart,
-                                      valueChanged: (isFavorite) {
-                                        setState(() {
-                                          controller.cart(
-                                              id: snapshot
-                                                  .data![index].product!.id!);
-                                        });
-                                      },
-                                      iconSize: 40,
-                                      iconDisabledColor: Colors.grey,
-                                      iconColor:
-                                          Theme.of(context).iconTheme.color,
-                                    )*/
                                   ],
                                 ),
                                 Text(
@@ -191,7 +175,9 @@ class _CartScreenState extends State<CartScreen> {
               },
             );
           } else {
-            return const Center(child: Text('No Product in Cart 🛒',style: TextStyle(fontSize:30 )));
+            return const Center(
+                child: Text('No Product in Cart 🛒',
+                    style: TextStyle(fontSize: 30)));
           }
         },
       ),

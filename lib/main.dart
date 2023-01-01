@@ -48,11 +48,8 @@ class MyApp extends StatelessWidget {
         "/profile_screen": (context) => const ProfileScreen(),
         "/product_detiles": (context) => ProductDetails(index: 0),
       },
-      supportedLocales: const [
-        Locale('en', ''),
-        Locale('ar', '')
-      ],
-      locale: const Locale("en", "ar"),
+      supportedLocales: const [Locale('ar', ''), Locale('en', '')],
+      locale: const Locale( "ar","en"),
       localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,

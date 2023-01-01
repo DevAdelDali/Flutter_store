@@ -234,6 +234,8 @@ class MyController extends GetxController {
         return responsObjects.map((e) => Cart.fromJson(e)).toList();
       }
     } catch (e) {
+      print('------------------------');
+
       Get.snackbar('Error!', e.toString());
     }
     return [];
