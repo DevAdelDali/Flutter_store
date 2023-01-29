@@ -22,6 +22,16 @@ class MyController extends GetxController {
   bool isSelect = true;
   int indexCount = 0;
 
+  ///هذا على طريقة ال singelton design patterns
+  static final MyController _controller = MyController._myController();
+
+  factory MyController() {
+    return _controller;
+  }
+
+  MyController._myController();
+
+  //الى حد هنا
   Future<List<Banners>> fetchHomeBanner() async {
     try {
       const String url = 'https://student.valuxapps.com/api/home';
